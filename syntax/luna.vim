@@ -16,15 +16,14 @@ endif
 "let b:current_syntax = "luna"
 
 syn keyword lunaConditional if else elseif
-
-syn keyword lunaKeyword     extern import export
-syn keyword lunaKeyword     for foreach if else elseif end log
-syn keyword lunaKeyword     do while loop priv pub ret
+syn keyword lunaPackage     extern import export module priv pub log nextgroup=lunaIdentifier skipwhite
+syn keyword lunaKeyword     for foreach if else elseif end ret return
+syn keyword lunaKeyword     do while loop 
 
 syn keyword lunaKeyword     mod struct class enum nextgroup=lunaIdentifier skipwhite
 syn keyword lunaKeyword     fn template pure nextgroup=lunaFuncName skipwhite
-syn keyword lunaKeyword     assert throw nothrow new delete 
-syn keyword lunaBuiltin     typeof stringof cast typedef define basetype mut? imut?  
+syn keyword lunaKeyword     assert throw nothrow new delete
+syn keyword lunaBuiltin     typeof stringof cast typedef define basetype 
 
 syn keyword lunaStorage     let imut mut ref scope shared static global nextgroup=lunaIdentifier skipwhite
 
