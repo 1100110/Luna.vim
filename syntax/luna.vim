@@ -10,10 +10,10 @@ elseif exists("b:current_syntax")
 endif
 
 " Support cpoptions
-let s:cpo_save = &cpo
-set cpo&vim
+"let s:cpo_save = &cpo
+"set cpo&vim
 
-let b:current_syntax = "luna"
+"let b:current_syntax = "luna"
 
 syn keyword lunaConditional if else elseif
 
