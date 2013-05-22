@@ -16,21 +16,20 @@ end
     "syntax match lunaNiceOperator "->" conceal cchar=→
     "syntax match lunaNiceOperator "=>" conceal cchar=⇒
 "endif
-let g:luna_conceal_mod_path=1
-let g:luna_conceal_pub=1
+"let g:luna_conceal_mod_path=1
+
+"let g:luna_conceal_pub=1
 " For those who don't want to see `::`...
-if exists('g:luna_conceal_mod_path')
-    syn match lunaNiceOperator "::" conceal cchar=∷ 
-endif
+"if exists('g:luna_conceal_mod_path')
+    "syn match lunaNiceOperator "::" conceal cchar=∷
+"endif
 
 " For those who don't want to see `pub`...
-if exists('g:luna_conceal_pub')
-    syn match lunaPublicSigil contained "pu" conceal cchar=＊ 
-    syn match lunaPublicRest contained "b" conceal cchar= 
-    syn match lunaNiceOperator "pub " contains=lunaPublicSigil,lunaPublicRest
-endif
-
-"syn match lunaStarPointer contained "*" conceal cchar=＊
+"if exists('g:luna_conceal_pub')
+    "syn match lunaPublicSigil contained "pu" conceal cchar=＊
+    "syn match lunaPublicRest contained "b" conceal cchar=
+    "syn match lunaNiceOperator "pub " contains=lunaPublicSigil,lunaPublicRest
+"endif
 
 
 syn match lunaRightArrowHead contained ">" conceal cchar= 
@@ -53,7 +52,7 @@ syntax match lunaNiceOperator ">=" conceal cchar=≳
 
 syntax match lunaNiceOperator ">>"   conceal cchar=»
 "syntax match lunaNiceOperator "::" conceal cchar=∷
-syntax match lunaNiceOperator ".." conceal cchar= ‥ 
+syntax match lunaNiceOperator ".." conceal cchar=‥ 
 
 hi link lunaNiceOperator Operator
 hi! link Conceal Operator
