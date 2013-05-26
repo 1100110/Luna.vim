@@ -40,9 +40,9 @@ syn match lunaFatRightArrowHead contained ">" conceal cchar= 
 syn match lunaFatRightArrowTail contained "=" conceal cchar=⟹
 syn match lunaNiceOperator "=>" contains=lunaFatRightArrowHead,lunaFatRightArrowTail
 
-syntax match lunaNiceOperator " / "  conceal cchar=÷
-syntax match lunaNiceOperator " \* " conceal cchar=∙
-"syntax keyword lunaNiceStatement lambda conceal cchar=λ
+syntax match    lunaNiceOperator " / "  conceal cchar=÷
+syntax match    lunaNiceOperator " \* " conceal cchar=∙
+syntax keyword  lunaNiceStatement lambda conceal cchar=λ
 
 
 syntax match lunaNiceOperator "==" conceal cchar=≡
@@ -51,7 +51,6 @@ syntax match lunaNiceOperator "<=" conceal cchar=≲
 syntax match lunaNiceOperator ">=" conceal cchar=≳
 
 syntax match lunaNiceOperator ">>"   conceal cchar=»
-"syntax match lunaNiceOperator "::" conceal cchar=∷
 syntax match lunaNiceOperator ".." conceal cchar=‥ 
 
 hi link lunaNiceOperator Operator

@@ -15,8 +15,8 @@ endif
 
 "let b:current_syntax = "luna"
 
-syn keyword lunaConditional if else elseif
 syn keyword lunaPackage     extern import export module priv pub log nextgroup=lunaIdentifier skipwhite
+syn keyword lunaConditional if else elseif
 syn keyword lunaKeyword     for foreach if else elseif end ret return
 syn keyword lunaKeyword     do while loop 
 
@@ -39,11 +39,11 @@ syn keyword lunaType        str
 syn keyword lunaType        d_short d_int d_uint d_long d_ulong c_ulong c_void 
 syn keyword lunaType        size_t ptrdiff_t clock_t time_t
 
-syn keyword   lunaSelf        self
-syn keyword   lunaBoolean     true false ()
+syn keyword lunaSelf        self
+syn keyword lunaBoolean     true false ()
 
-syn keyword   lunaConstant    Ok Err          " result
-syn keyword   lunaConstant    Cons Nil        " list
+syn keyword lunaConstant    Ok Err          " result
+syn keyword lunaConstant    Cons Nil        " list
 " syn keyword lunaConstant    empty node      " tree
 
 " If foo::bar changes to foo.bar, change this ("::" to "\.").
@@ -51,33 +51,34 @@ syn keyword   lunaConstant    Cons Nil        " list
 "syn match     rustModPath     "\w\(\w\)*::[^<]"he=e-3,me=e-3
 "syn match     rustModPathSep  "::"
 
-syn match     lunaFuncCall    "\w\(\w\)*("he=e-1,me=e-1
+syn match   lunaFuncCall    "\w\(\w\)*("he=e-1,me=e-1
 "syn match     lunaFuncCall    "\w\(\w\)*::<"he=e-3,me=e-3 " foo::<T>();
 
-syn match     lunaFormat      display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlLjzt]\|ll\|hh\)\=\([aAbdiuoxXDOUfFeEgGcCsSpn?]\|\[\^\=.[^]]*\]\)" contained
-syn region    lunaString      start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=lunaTodo,lunaFormat
+syn match   lunaFormat      display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlLjzt]\|ll\|hh\)\=\([aAbdiuoxXDOUfFeEgGcCsSpn?]\|\[\^\=.[^]]*\]\)" contained
+syn region  lunaString      start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=lunaTodo,lunaFormat
 
-syn region    lunaAttribute   start="#\[" end="\]" contains=lunaString
+syn region  lunaAttribute   start="#\[" end="\]" contains=lunaString
 
 " Number literals
-syn match     lunaNumber      display "\<[0-9][0-9_]*\>"
-syn match     lunaNumber      display "\<[0-9][0-9_]*\(u\|u8\|u16\|u32\|u64\)\>"
-syn match     lunaNumber      display "\<[0-9][0-9_]*\(i8\|i16\|i32\|i64\)\>"
+syn match   lunaNumber      display "\<[0-9][0-9_]*\>"
+syn match   lunaNumber      display "\<[0-9][0-9_]*\(u\|u8\|u16\|u32\|u64\)\>"
+syn match   lunaNumber      display "\<[0-9][0-9_]*\(i8\|i16\|i32\|i64\)\>"
 
-syn match lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\>"
-syn match lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\(u\|u8\|u16\|u32\|u64\)\>"
-syn match lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\(i8\|i16\|i32\|i64\)\>"
-syn match lunaBinNumber   display "\<0b[01_]\+\>"
-syn match lunaBinNumber   display "\<0b[01_]\+\(u\|u8\|u16\|u32\|u64\)\>"
-syn match lunaBinNumber   display "\<0b[01_]\+\(i8\|i16\|i32\|i64\)\>"
+syn match   lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\>"
+syn match   lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\(u\|u8\|u16\|u32\|u64\)\>"
+syn match   lunaHexNumber   display "\<0x[a-fA-F0-9_]\+\(i8\|i16\|i32\|i64\)\>"
 
-syn match lunaFloat       display "\<[0-9][0-9_]*\(f\|f16\|f32\|f64\)\>"
-syn match lunaFloat       display "\<[0-9][0-9_]*\.[0-9_]\+\>"
-syn match lunaFloat       display "\<[0-9][0-9_]*\.[0-9_]\+\(f\|f16\|f32\|f64\)\>"
+syn match   lunaBinNumber   display "\<0b[01_]\+\>"
+syn match   lunaBinNumber   display "\<0b[01_]\+\(u\|u8\|u16\|u32\|u64\)\>"
+syn match   lunaBinNumber   display "\<0b[01_]\+\(i8\|i16\|i32\|i64\)\>"
+
+syn match   lunaFloat       display "\<[0-9][0-9_]*\(f\|f16\|f32\|f64\)\>"
+syn match   lunaFloat       display "\<[0-9][0-9_]*\.[0-9_]\+\>"
+syn match   lunaFloat       display "\<[0-9][0-9_]*\.[0-9_]\+\(f\|f16\|f32\|f64\)\>"
 
 "rustLifetime must appear before rustCharacter, or chars will get the lifetime highlighting
-syn match lunaLifetime    display "\'\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*"
-syn match lunaCharacter   "'\([^'\\]\|\\\(['nrt\\\"]\|x\x\{2}\|u\x\{4}\|U\x\{8}\)\)'"
+syn match   lunaLifetime    display "\'\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*"
+syn match   lunaCharacter   "'\([^'\\]\|\\\(['nrt\\\"]\|x\x\{2}\|u\x\{4}\|U\x\{8}\)\)'"
 
 syn region  lunaCommentDoc  start="/\*[\*!]" end="\*/"
 syn region  lunaCommentDoc  start="//[/!]" skip="\\$" end="$" keepend
